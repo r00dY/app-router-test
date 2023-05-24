@@ -1,14 +1,26 @@
 import styles from './page.module.css'
-import { exampleConfig } from "@/exampleConfig";
-import {trimConfig} from "@/trimConfig";
-import {BaseConfigRenderer} from "@/BaseConfigRenderer";
+import {UnusedClientComponent} from "@/UnusedClientComponent";
+import {HeaderClientComponent} from "@/HeaderClientComponent";
 
 export default function Home() {
-  const baseConfig = trimConfig(exampleConfig);
+  const object = {
+    title: "Hello world",
+    component: UnusedClientComponent
+  }
+
+  /**
+   * UnusedClientComponent is referenced in a server component, but:
+   * 1. It's not passed to client component via props
+   * 2. No client component imports and uses this component.
+   *
+   * And yet, UnusedClientComponent is added to the client bundle.
+   */
 
   return (
     <main className={styles.main}>
-      <BaseConfigRenderer baseConfig={baseConfig} />
+      <HeaderClientComponent
+        title={object.title}
+      />
     </main>
   )
 }
