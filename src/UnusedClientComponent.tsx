@@ -1,7 +1,7 @@
 'use client';
 import React from 'react'
 
-export function ClientComponent() {
+export function UnusedClientComponent() {
   return <div>
     I'm a client component!!!
   </div>
