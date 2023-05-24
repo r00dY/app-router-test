@@ -3,6 +3,6 @@ import React from 'react'
 
 export function UnusedClientComponent() {
   return <div>
-    I'm a client component!!!
+    I'm an unused client component!!!
   </div>
 }
